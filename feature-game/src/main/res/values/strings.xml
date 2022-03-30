@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">domain_fallingwords</string>
+    <string name="correct">correct</string>
+    <string name="wrong">wrong</string>
+    <string name="score">score:</string>
+    <string name="lives">lives:</string>
+    <string name="fall">fall</string>
+    <string name="replay">replay</string>
+</resources>
