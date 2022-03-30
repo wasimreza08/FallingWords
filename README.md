@@ -16,7 +16,7 @@ The feature module contains the domain module as dependency and the presentation
 interacting to the views. The events are handled by the view model and change the model which is observed by the views. This architecture supports
 unidirectional data flow from view - intent - model - view. 
 
-#Time Distribution
+## Time Distribution
 I have spend around 7 hour to do it. 
 - Planning, project structure creation and dependency resolve 1:30h
 - Data layer takes 1h
@@ -25,7 +25,7 @@ I have spend around 7 hour to do it.
 - unit testing 1:30h
 - Documenting 30 mins
 
-#Improvement
+## Improvement
 - Work on the animation
 - More levels of the game
 - UI testing
