@@ -5,9 +5,7 @@ import com.example.domainfallingwords.domain.domainmodel.WordModel
 import com.example.domainfallingwords.domain.repository.WordRepository
 import io.mockk.coEvery
 import io.mockk.mockk
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -58,8 +56,9 @@ class LoadDataUseCaseImplTest {
             repository.getWordList()
         } returns flow { emit(throw provided) }
 
-        useCase.execute().take(1).collectLatest {
-            assertEquals(expected, it)
+        useCase.execute().test {
+            assertEquals(expected, awaitItem())
+            awaitComplete()
         }
     }
 }

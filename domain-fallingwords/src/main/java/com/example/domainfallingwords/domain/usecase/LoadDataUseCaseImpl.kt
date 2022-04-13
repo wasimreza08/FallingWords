@@ -12,9 +12,9 @@ class LoadDataUseCaseImpl @Inject constructor(
     override fun execute(): Flow<LoadDataUseCase.Output> {
         return repository.getWordList().map {
             val shuffleList = it.shuffled().take(WORD_AMOUNT)
-            LoadDataUseCase.Output.Success(shuffleList)
+            LoadDataUseCase.Output.Success(shuffleList) as LoadDataUseCase.Output
         }.catch { exception ->
-            LoadDataUseCase.Output.UnknownError(exception.message.orEmpty())
+            emit(LoadDataUseCase.Output.UnknownError(exception.message.orEmpty()))
         }
     }
 

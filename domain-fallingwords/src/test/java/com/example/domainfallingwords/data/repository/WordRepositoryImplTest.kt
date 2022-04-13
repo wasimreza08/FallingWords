@@ -3,6 +3,7 @@ package com.example.domainfallingwords.data.repository
 import app.cash.turbine.test
 import com.example.domainfallingwords.data.datasource.LocalDataSource
 import com.example.domainfallingwords.data.dto.WordDto
+import com.example.domainfallingwords.data.mapper.DtoToDomainMapper
 import com.example.domainfallingwords.domain.domainmodel.WordModel
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -13,7 +14,8 @@ import org.junit.Test
 
 class WordRepositoryImplTest {
     private val localDataSource: LocalDataSource = mockk()
-    private val repository = WordRepositoryImpl(localDataSource)
+    private val mapper: DtoToDomainMapper = DtoToDomainMapper()
+    private val repository = WordRepositoryImpl(localDataSource, mapper)
 
     private val returnData = listOf(
         WordDto(engWord = "primary school", spaWord = "escuela primaria"),

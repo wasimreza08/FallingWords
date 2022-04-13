@@ -32,7 +32,8 @@ class GameUseCaseImpl @Inject constructor() : GameUseCase {
         return if (question == null) {
             score
         } else {
-            if (question.answer == null ||
+            if (
+                question.answer == null ||
                 ((wordList[question.index].translation == question.providedTranslation) != question.answer)
             ) {
                 score.copy(lives = score.lives - DECREASED_LIFE)
