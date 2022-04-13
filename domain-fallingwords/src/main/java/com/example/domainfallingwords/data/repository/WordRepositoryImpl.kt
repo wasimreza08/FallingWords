@@ -9,10 +9,10 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class WordRepositoryImpl @Inject constructor(
-    private val localDataSource: LocalDataSource
+    private val localDataSource: LocalDataSource,
+    private val mapper: DtoToDomainMapper
 ) : WordRepository {
     override fun getWordList(): Flow<List<WordModel>> {
-        val mapper = DtoToDomainMapper()
         return localDataSource.getWords().map { list ->
             list.map { mapper.map(it) }
         }
