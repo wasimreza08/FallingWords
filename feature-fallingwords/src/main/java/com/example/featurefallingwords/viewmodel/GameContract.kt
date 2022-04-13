@@ -13,6 +13,7 @@ object GameContract {
     ) : ViewState
 
     sealed class Event : ViewEvent {
+        object OnInitViewModel : Event()
         object OnCorrectClicked : Event()
         object OnWrongClicked : Event()
         object OnWordFallen : Event()

@@ -22,7 +22,7 @@ class GameViewModel @Inject constructor(
     private var currentIndex: Int = -1
 
     init {
-        loadData()
+        onEvent(GameContract.Event.OnInitViewModel)
     }
 
     override fun provideInitialState(): GameContract.State {
@@ -127,6 +127,7 @@ class GameViewModel @Inject constructor(
 
     override fun handleEvent(event: GameContract.Event) {
         when (event) {
+            is GameContract.Event.OnInitViewModel -> loadData()
             is GameContract.Event.OnCorrectClicked -> {
                 loopGameEngine(true)
             }
