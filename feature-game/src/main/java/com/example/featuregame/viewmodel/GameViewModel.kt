@@ -46,59 +46,52 @@ class GameViewModel @Inject constructor(
     }
 
     private fun initGameEngine(wordList: List<WordModel>) {
-        viewModelScope.launch {
-            gameUseCase.execute(
-                GameUseCase.Input(
-                    currentQuestion = null,
-                    score = Score(
-                        points = viewState.value.points,
-                        lives = viewState.value.lives
-                    ),
-                    wordList = wordList
-                )
-            ).collect { output ->
-                when (output) {
-                    is GameUseCase.Output.Success -> {
-                        handleSuccess(output)
-                    }
-                    is GameUseCase.Output.UnknownError -> {
-                        sendEffect { GameContract.Effect.UnknownErrorEffect(output.message) }
-                    }
-                }
-            }
-        }
+        runGame(
+            GameUseCase.Input(
+                currentQuestion = null,
+                score = Score(
+                    points = viewState.value.points,
+                    lives = viewState.value.lives
+                ),
+                wordList = wordList
+            )
+        )
     }
 
     private fun loopGameEngine(answer: Boolean?) {
         viewState.value.wordUiModel?.let {
-            viewModelScope.launch {
-                gameUseCase.execute(
-                    GameUseCase.Input(
-                        currentQuestion =
-                        Question(
-                            word = it.word,
-                            providedTranslation = it.fallingTranslation,
-                            answer = answer,
-                            index = currentIndex
-                        ),
-                        score = Score(
-                            points = viewState.value.points,
-                            lives = viewState.value.lives
-                        ),
-                        wordList = wordModelList
-                    )
-                ).collect { output ->
-                    when (output) {
-                        is GameUseCase.Output.Success -> {
-                            if (output.score.lives < 0) {
-                                sendEffect { GameContract.Effect.OnGameFinished }
-                            } else {
-                                handleSuccess(output)
-                            }
+            runGame(
+                GameUseCase.Input(
+                    currentQuestion =
+                    Question(
+                        word = it.word,
+                        providedTranslation = it.fallingTranslation,
+                        answer = answer,
+                        index = currentIndex
+                    ),
+                    score = Score(
+                        points = viewState.value.points,
+                        lives = viewState.value.lives
+                    ),
+                    wordList = wordModelList
+                )
+            )
+        }
+    }
+
+    private fun runGame(input: GameUseCase.Input) {
+        viewModelScope.launch {
+            gameUseCase.execute(input).collect { output ->
+                when (output) {
+                    is GameUseCase.Output.Success -> {
+                        if (output.score.lives < 0) {
+                            sendEffect { GameContract.Effect.OnGameFinished }
+                        } else {
+                            handleSuccess(output)
                         }
-                        is GameUseCase.Output.UnknownError -> {
-                            sendEffect { GameContract.Effect.UnknownErrorEffect(output.message) }
-                        }
+                    }
+                    is GameUseCase.Output.UnknownError -> {
+                        sendEffect { GameContract.Effect.UnknownErrorEffect(output.message) }
                     }
                 }
             }

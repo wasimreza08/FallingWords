@@ -65,7 +65,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
     }
 
     private fun navigateToResult() {
-        val result = binding.tvScore.text.toString()
+        val result = viewModel.viewState.value.points.toString()
         findNavController().safeNavigate(GameFragmentDirections.actionGameFragmentToResultFragment(result))
     }
 
