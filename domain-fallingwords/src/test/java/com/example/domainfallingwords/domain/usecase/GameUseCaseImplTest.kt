@@ -9,7 +9,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class GameUseCaseImplTest {
-    private val useCase = GameUseCaseImpl()
+    private val useCase = GameUseCaseImpl(TestDispatcherProvider())
     private val input: GameUseCase.Input = GameUseCase.Input(
         currentQuestion = Question(
             word = "primary school",

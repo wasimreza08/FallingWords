@@ -13,7 +13,7 @@ import java.io.IOException
 
 class LoadDataUseCaseImplTest {
     private val repository: WordRepository = mockk()
-    private val useCase = LoadDataUseCaseImpl(repository)
+    private val useCase = LoadDataUseCaseImpl(repository, TestDispatcherProvider())
 
     private val expectedData = listOf(
         WordModel(word = "primary school", translation = "escuela primaria"),

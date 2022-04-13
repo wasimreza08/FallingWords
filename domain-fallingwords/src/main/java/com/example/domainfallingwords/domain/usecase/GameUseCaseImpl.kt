@@ -1,14 +1,18 @@
 package com.example.domainfallingwords.domain.usecase
 
+import com.example.core.dispatcher.BaseDispatcherProvider
 import com.example.domainfallingwords.domain.domainmodel.Question
 import com.example.domainfallingwords.domain.domainmodel.Score
 import com.example.domainfallingwords.domain.domainmodel.WordModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class GameUseCaseImpl @Inject constructor() : GameUseCase {
+class GameUseCaseImpl @Inject constructor(
+    private val dispatcherProvider: BaseDispatcherProvider
+) : GameUseCase {
     override fun execute(input: GameUseCase.Input): Flow<GameUseCase.Output> = flow {
         emit(
             GameUseCase.Output.Success(
@@ -22,7 +26,7 @@ class GameUseCaseImpl @Inject constructor() : GameUseCase {
         )
     }.catch { exception ->
         emit(GameUseCase.Output.UnknownError(exception.message.orEmpty()))
-    }
+    }.flowOn(dispatcherProvider.compute())
 
     private fun calculateScore(
         wordList: List<WordModel>,
