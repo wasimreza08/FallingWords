@@ -16,4 +16,4 @@ rootProject.name = "FallingWords"
 include ':app'
 include ':domain-fallingwords'
 include ':core'
-include ':feature-game'
+include ':feature-fallingwords'

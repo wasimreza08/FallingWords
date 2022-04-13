@@ -1,11 +1,12 @@
-package com.example.featuregame.view
+package com.example.featurefallingwords.view
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.example.core.ext.viewBinding
-import com.example.featuregame.databinding.ActivityGameBinding
+import com.example.featurefallingwords.databinding.ActivityGameBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,11 +1,11 @@
-package com.example.featuregame.viewmodel
+package com.example.featurefallingwords.viewmodel
 
 import com.example.domainfallingwords.domain.domainmodel.Question
 import com.example.domainfallingwords.domain.domainmodel.Score
 import com.example.domainfallingwords.domain.domainmodel.WordModel
 import com.example.domainfallingwords.domain.usecase.GameUseCase
 import com.example.domainfallingwords.domain.usecase.LoadDataUseCase
-import com.example.featuregame.model.WordUiModel
+import com.example.featurefallingwords.model.WordUiModel
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers

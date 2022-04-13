@@ -1,4 +1,4 @@
-package com.example.featuregame.model
+package com.example.featurefallingwords.model
 
 data class WordUiModel(
     val word: String,

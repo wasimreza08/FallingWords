@@ -5,8 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_starbursts_feature"
-    tools:context=".view.GameActivity">
+    android:background="@drawable/bg_starbursts_feature">
 
     <TextView
         android:id="@+id/tv_falling"

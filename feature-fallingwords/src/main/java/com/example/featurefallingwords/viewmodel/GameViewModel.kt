@@ -1,4 +1,4 @@
-package com.example.featuregame.viewmodel
+package com.example.featurefallingwords.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.example.core.ext.exhaustive
@@ -8,7 +8,7 @@ import com.example.domainfallingwords.domain.domainmodel.Score
 import com.example.domainfallingwords.domain.domainmodel.WordModel
 import com.example.domainfallingwords.domain.usecase.GameUseCase
 import com.example.domainfallingwords.domain.usecase.LoadDataUseCase
-import com.example.featuregame.model.WordUiModel
+import com.example.featurefallingwords.model.WordUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

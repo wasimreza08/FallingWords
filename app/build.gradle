@@ -55,6 +55,6 @@ dependencies {
     kapt commonDependencies.google.hiltCompiler
     implementation commonDependencies.google.maps
     implementation commonDependencies.other.timber
+    implementation project(path: ':feature-fallingwords')
 
-    implementation project(path: ':feature-game')
 }

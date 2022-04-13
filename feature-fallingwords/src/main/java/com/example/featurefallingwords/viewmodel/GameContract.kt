@@ -1,9 +1,9 @@
-package com.example.featuregame.viewmodel
+package com.example.featurefallingwords.viewmodel
 
 import com.example.core.viewmodel.ViewEffect
 import com.example.core.viewmodel.ViewEvent
 import com.example.core.viewmodel.ViewState
-import com.example.featuregame.model.WordUiModel
+import com.example.featurefallingwords.model.WordUiModel
 
 object GameContract {
     data class State(

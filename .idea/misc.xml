@@ -5,6 +5,8 @@
       <map>
         <entry key="feature-fallingwords/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2925" />
         <entry key="feature-fallingwords/src/main/res/layout/activity_game.xml" value="0.14114583333333333" />
+        <entry key="feature-fallingwords/src/main/res/layout/fragment_game.xml" value="0.22871376811594202" />
+        <entry key="feature-fallingwords/src/main/res/layout/fragment_result.xml" value="0.22871376811594202" />
         <entry key="feature-game/src/main/res/drawable/ic_correct.xml" value="0.151" />
         <entry key="feature-game/src/main/res/drawable/ic_launcher_background.xml" value="0.151" />
         <entry key="feature-game/src/main/res/drawable/ic_replay.xml" value="0.178" />

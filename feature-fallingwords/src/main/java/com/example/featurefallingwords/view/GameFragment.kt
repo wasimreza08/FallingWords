@@ -1,4 +1,4 @@
-package com.example.featuregame.view
+package com.example.featurefallingwords.view
 
 import android.os.Bundle
 import android.view.View
@@ -14,10 +14,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.core.delegate.viewBinding
 import com.example.core.ext.exhaustive
 import com.example.core.ext.safeNavigate
-import com.example.featuregame.R
-import com.example.featuregame.databinding.FragmentGameBinding
-import com.example.featuregame.viewmodel.GameContract
-import com.example.featuregame.viewmodel.GameViewModel
+import com.example.featurefallingwords.R
+import com.example.featurefallingwords.databinding.FragmentGameBinding
+import com.example.featurefallingwords.viewmodel.GameContract
+import com.example.featurefallingwords.viewmodel.GameViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -66,7 +66,11 @@ class GameFragment : Fragment(R.layout.fragment_game) {
 
     private fun navigateToResult() {
         val result = viewModel.viewState.value.points.toString()
-        findNavController().safeNavigate(GameFragmentDirections.actionGameFragmentToResultFragment(result))
+        findNavController().safeNavigate(
+            GameFragmentDirections.actionGameFragmentToResultFragment(
+                result
+            )
+        )
     }
 
     private fun startWordFalling(viewState: GameContract.State) {

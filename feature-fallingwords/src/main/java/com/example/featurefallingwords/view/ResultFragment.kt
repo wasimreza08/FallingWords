@@ -1,4 +1,4 @@
-package com.example.featuregame.view
+package com.example.featurefallingwords.view
 
 import android.os.Bundle
 import android.view.View
@@ -8,8 +8,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.core.delegate.viewBinding
 import com.example.core.ext.safeNavigate
-import com.example.featuregame.R
-import com.example.featuregame.databinding.FragmentResultBinding
+import com.example.featurefallingwords.R
+import com.example.featurefallingwords.databinding.FragmentResultBinding
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
