@@ -11,10 +11,11 @@ import dagger.Module
 import dagger.Provides
 import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 interface DomainModule {
 
     companion object {
@@ -26,8 +27,10 @@ interface DomainModule {
     }
 
     @Binds
+    @ViewModelScoped
     fun bindFetchData(useCase: LoadDataUseCaseImpl): LoadDataUseCase
 
     @Binds
+    @ViewModelScoped
     fun bindGame(useCase: GameUseCaseImpl): GameUseCase
 }
