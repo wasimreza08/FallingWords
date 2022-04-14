@@ -9,7 +9,6 @@ import com.example.domainfallingwords.domain.usecase.LoadDataUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
@@ -19,18 +18,18 @@ import dagger.hilt.android.scopes.ViewModelScoped
 interface DomainModule {
 
     companion object {
-        @Reusable
+        @ViewModelScoped
         @Provides
         fun provideDispatcher(): BaseDispatcherProvider {
             return MainDispatcherProvider()
         }
     }
 
-    @Binds
     @ViewModelScoped
+    @Binds
     fun bindFetchData(useCase: LoadDataUseCaseImpl): LoadDataUseCase
 
-    @Binds
     @ViewModelScoped
+    @Binds
     fun bindGame(useCase: GameUseCaseImpl): GameUseCase
 }
